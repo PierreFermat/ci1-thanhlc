@@ -21,7 +21,8 @@ public class GameWindow extends Frame {
     private BufferedImage player_Straight;
     private int playX = 178;
     private int playY = 600;
-
+    private int dx ;
+    private int dy ;
 
 
     private int backgroundy = -2400;
@@ -60,49 +61,42 @@ public class GameWindow extends Frame {
 
             @Override
             public void keyPressed(KeyEvent e) {
-                System.out.println("xxx");
                 if (e.getKeyCode() == KeyEvent.VK_RIGHT){
-
-                    playX += 4;
-                    if ( playX > 384){
-                        playX = 384;
-                    }
-
-
-                }
-                if (e.getKeyCode() == KeyEvent.VK_UP){
-
-                    playY -= 4;
-                    if ( playY < 0){
-                        playY = 0 ;
-                    }
+                    dx = 4;
                 }
                 if (e.getKeyCode() == KeyEvent.VK_LEFT){
-
-                    playX -= 4;
-                    if ( playX < 0){
-                        playX = 0;
-                    }
-
+                    dx = -4;
+                }
+                if (e.getKeyCode() == KeyEvent.VK_UP){
+                    dy = -4;
                 }
                 if (e.getKeyCode() == KeyEvent.VK_DOWN){
-
-                    playY += 4;
-                    if (playY > 720){
-                        playY = 720 ;
-                    }
-
+                    dy = 4;
                 }
+
             }
 
             @Override
             public void keyReleased(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_RIGHT){
+                    dx = 0;
+                }
+                if (e.getKeyCode() == KeyEvent.VK_LEFT){
+                    dx = 0;
+                }
+                if (e.getKeyCode() == KeyEvent.VK_UP){
+                    dy = 0;
+                }
+                if (e.getKeyCode() == KeyEvent.VK_DOWN){
+                    dy = 0;
+                }
 
-                System.out.println("Key released");
             }
         });
-
     }
+
+
+
 
     public void loop() {
         while (true) {
@@ -120,6 +114,20 @@ public class GameWindow extends Frame {
     }
 
     private void run() {
+        playX += dx;
+        playY += dy;
+        if (playX < 0){
+            playX = 0;
+        }
+        if (playY < 0){
+            playY = 0;
+        }
+        if ( playY > 740){
+            playY = 740;
+        }
+        if (playX > 380) {
+            playX = 380;
+        }
 
     }
 

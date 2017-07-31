@@ -21,7 +21,7 @@ public class GameWindow extends Frame {
     private BufferedImage player_Straight;
     private int playX = 178;
     private int playY = 600;
-    
+
 
     private int backgroundy = -2400;
 

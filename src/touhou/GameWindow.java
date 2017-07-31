@@ -23,6 +23,7 @@ public class GameWindow extends Frame {
     private int playY = 600;
 
 
+
     private int backgroundy = -2400;
 
 
@@ -61,18 +62,36 @@ public class GameWindow extends Frame {
             public void keyPressed(KeyEvent e) {
                 System.out.println("xxx");
                 if (e.getKeyCode() == KeyEvent.VK_RIGHT){
+
                     playX += 4;
+                    if ( playX > 384){
+                        playX = 384;
+                    }
 
 
                 }
                 if (e.getKeyCode() == KeyEvent.VK_UP){
+
                     playY -= 4;
+                    if ( playY < 0){
+                        playY = 0 ;
+                    }
                 }
                 if (e.getKeyCode() == KeyEvent.VK_LEFT){
+
                     playX -= 4;
+                    if ( playX < 0){
+                        playX = 0;
+                    }
+
                 }
                 if (e.getKeyCode() == KeyEvent.VK_DOWN){
+
                     playY += 4;
+                    if (playY > 720){
+                        playY = 720 ;
+                    }
+
                 }
             }
 
